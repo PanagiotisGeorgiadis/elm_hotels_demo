@@ -1,0 +1,498 @@
+body {
+  font-family: 'Source Sans Pro', 'Trebuchet MS', 'Lucida Grande', 'Bitstream Vera Sans', 'Helvetica Neue', sans-serif;
+  font-size: 30px;
+  margin: 0;
+  text-align: center;
+  color: #293c4b;
+
+  overflow-x: hidden;
+}
+
+label {
+  font-size: 0.5em;
+}
+
+select {
+  padding: 0 2px;
+  display: block;
+  margin: 5px;
+}
+
+.hotels_page_container {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  overflow: none;
+}
+
+.hotels_list_container {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+
+  overflow: auto;
+}
+
+.hotel_container {
+  padding: 10px;
+  margin: 1em auto 0 auto;
+  border: 1px solid black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.hotel_container:last-child {
+  margin-bottom: 2em;
+}
+
+.hotel_image_container {
+  min-width: 400px;
+  min-height: 407px;
+  background: url("https://pbs.twimg.com/profile_images/600060188872155136/st4Sp6Aw.jpg") no-repeat center center;
+  background-size: contain;
+}
+
+.hotel_information_container {
+  max-width: 400px;
+}
+
+.hotel_information_top_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hotel_stars {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.star_image {
+  width: 30px;
+  height: 30px;
+}
+
+.hotel_min_cost {
+  width: 50%;
+  margin: 0;
+  font-size: 0.8em;
+  text-align: right;
+}
+
+.hotel_name {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  margin-bottom: 0.2em;
+}
+
+.hotel_information_bottom_container {
+  margin-top: 0.8em;
+}
+
+.hotel_information_bottom_container p {
+  margin: 0;
+  font-size: 0.7em;
+  text-align: left;
+}
+
+.user_rating_container {
+  margin: 1em 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.user_rating_container p {
+  margin: 0;
+  font-size: 0.7em;
+}
+
+.total_ratings_container {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.25em;
+  border: 1px solid black;
+}
+
+.visual_ratings_container {
+  min-width: 200px;
+}
+
+.visual_rating {
+  width: 100%;
+  height: 36px;
+  background-image: url("/rating_hearts_7.png");
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: 100%;
+  cursor: pointer;
+}
+
+.visual_rating_5 { background-position-y: 0%; }
+.visual_rating_4_5 { background-position-y: 11%; }
+.visual_rating_4 { background-position-y: 21%; }
+.visual_rating_3_5 { background-position-y: 31%; }
+.visual_rating_3 { background-position-y: 41%; }
+.visual_rating_2_5 { background-position-y: 50.5%; }
+.visual_rating_2 { background-position-y: 60.5%; }
+.visual_rating_1_5 { background-position-y: 70%; }
+.visual_rating_1 { background-position-y: 80%; }
+.visual_rating_0_5 { background-position-y: 90; }
+.visual_rating_0 { background-position-y: 100%; }
+
+/****************************************************************/
+/*************** Filtering and Sorting Controls *****************/
+/****************************************************************/
+.controls_container {
+  width: 25%;
+  min-height: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.filtering_controls_container {
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.location_filter_container {
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.filter_buttons_container {
+  height: 10%;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.filter_buttons {
+  margin-bottom: 0;
+  padding: 6px 12px;
+  text-align: center;
+
+  border-radius: 4px;
+  border: 1px solid transparent;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+.apply_filters_button {
+  color: #fff;
+  background-color: #337ab7;
+}
+
+.apply_filters_button:hover {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}
+
+.apply_filters_button:focus {
+  color: #fff;
+  background-color: #286090;
+  border-color: #122b40;
+}
+
+.reset_filters_button {
+  color: #fff;
+  background-color: #f0ad4e;
+  border-color: #eea236;
+}
+
+.reset_filters_button:hover {
+  color: #fff;
+  background-color: #ec971f;
+  border-color: #d58512;
+}
+
+.reset_filters_button:focus {
+  color: #fff;
+  background-color: #ec971f;
+  border-color: #985f0d;
+}
+
+/****************************************************************/
+/****************** Price Filtering Specifics *******************/
+/****************************************************************/
+.price_filters_container {
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.price_filters_container div:first-child {
+  margin-bottom: 50px;
+}
+
+.price_slider_container {
+  width: 60%;
+  margin: 0 auto;
+  padding: 5px 15px;
+}
+
+.price_slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: opacity .15s ease-in-out;
+  transition: opacity .15s ease-in-out;
+}
+
+.price_slider:hover {
+  opacity: 1;
+}
+
+.price_slider::-webkit-slider-thumb {
+  width: 25px;
+  height: 25px;
+  background: #189FFF;
+  border-radius: 50%;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.price_slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #189FFF;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/****************************************************************/
+/****************** Star Filtering Specifics ********************/
+/****************************************************************/
+.stars_filter_container {
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.stars_selection_container {
+  width: 100%;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.stars_selection_container:hover .stars_selection {
+  background: url("/star.svg") no-repeat center center;
+  background-size: contain;
+}
+
+.stars_selection_container > .stars_selection_offset:first-child:hover ~ .stars_selection {
+  background: url("/star_gray.png") no-repeat center center;
+  background-size: contain;
+}
+
+.stars_selection_offset {
+  width: 20%;
+  cursor: pointer;
+}
+
+.stars_selection {
+  width: 30px;
+  height: 30px;
+  padding: 0 5px;
+  background: url("/star_gray.png") no-repeat center center;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.stars_selection:hover ~ .stars_selection {
+  background: url("/star_gray.png") no-repeat center center;
+  background-size: contain;
+}
+
+.stars_selection.selected {
+  background: url("/star.svg") no-repeat center center !important;
+  background-size: contain !important;
+}
+
+/****************************************************************/
+/***************** Ratings Filtering Specifics ******************/
+/****************************************************************/
+.ratings_filter_container {
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.ratings_slider_container {
+  width: 60%;
+  margin: 0 auto;
+  padding: 5px 15px;
+}
+
+.ratings_slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: opacity .15s ease-in-out;
+  transition: opacity .15s ease-in-out;
+}
+
+.ratings_slider:hover {
+  opacity: 1;
+}
+
+.ratings_slider::-webkit-slider-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  border-radius: 50%;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.ratings_slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/****************************************************************/
+/******************** Sorting Controls Styles *******************/
+/****************************************************************/
+.sorting_controls {
+  width: 55%;
+  height: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.sorting_controls_container {
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.sorting_control {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
+
+  background-color: lightgreen;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+
+}
+
+.sorting_direction_indicator {
+  width: 20px;
+  height: 20px;
+  margin-left: auto;
+}
+
+.ascending {
+  -webkit-transform: rotate(-90deg);
+     -moz-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+       -o-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.descending {
+  -webkit-transform: rotate(90deg);
+     -moz-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+       -o-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.stars_control {
+  background-color: #F8D64E;
+}
+
+.stars_control:hover {
+  background-color: #F6CC23;
+}
+
+.rating_control {
+  background-color: #4CAF50;
+}
+
+.rating_control:hover {
+  background-color: #3E8E41;
+}
+
+.cost_control {
+  background-color: #189FFF;
+}
+
+.cost_control:hover {
+  background-color: #0086E6;
+}
+/****************************************************************/
+/*********************** Generic Styles *************************/
+/****************************************************************/
+.filler_container {
+  width: 25%;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+
+/****************************************************************/
+/*********************** Common Styles **************************/
+/****************************************************************/
+.filtering_controls_container p,
+.sorting_controls_container p {
+  margin: 0;
+  padding: 15px 0;
+  font-size: 0.6em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+     -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+}
